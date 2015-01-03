@@ -1,11 +1,11 @@
 import urllib2
 
-cookievar="_ga=GA1.2.1085126746.1417557135; _gat=1; s=p2q2l3umb9vhoh4dlj9epobvm7; "
+cookievar="_ga=GA1.2.1522730967.1420254067; _gat=1; s=463tq8tqjgerdv0erj70rdgcd7; "
 spoof_header = {
-    "Host": "www.prox4you.com",
+    # "Host": "www.prox4you.com",
     #"Accept": "image/webp,*/*;q=0.8",
     #"Accept-Encoding": "gzip, deflate, sdch",
-    "Accept-Language": "en-US,en;q=0.8",
+    # "Accept-Language": "en-US,en;q=0.8",
     "Cookie": cookievar,
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36"
 }
@@ -16,9 +16,7 @@ def request(url):
     url = urllib2.quote(url)
     url = url.replace("/", "%2F")
     url = "http://www.prox4you.com/browse/browse.php?u={}&b=20&f=norefer".format(url)
-    print(url)
     request = urllib2.Request(url, headers=spoof_header)
-    print(request)
     return urllib2.urlopen(request)
 
 def addcookie(k, v):
